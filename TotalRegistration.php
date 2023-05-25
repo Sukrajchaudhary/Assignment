@@ -32,15 +32,18 @@ require('auth.php');
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">All participant</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Total Registration</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
 
                     <?php
     include('connection.php');
-    $query ="SELECT id, firstname, surname,email,power_output,distance,club_id FROM participant";
-    $result = mysqli_query($conn,$query);
+    $query ="SELECT id, firstname, surname,email,terms FROM interest";
+    $result = mysqli_query($conn, $query);
+    if (!$result) {
+        die('Query execution failed: ' . mysqli_error($conn));
+    }
     ?>
                     <table class="table">
                         <thead>
@@ -48,25 +51,16 @@ require('auth.php');
                             <th>FirstName</th>
                             <th>Surname</th>
                             <th>email</th>
-                            <th>power_output</th>
-                            <th>distance</th>
-                            <th>club_id</th>
-                            <th>Action</th>
+                            <th>Terms</th>
                         </thead>
                         <?php while($row=mysqli_fetch_assoc($result)){ ?>
 
                         <tr>
-                            <td><?php echo $row['id'];  ?></td>
+                            <td><?php echo $row['id'];?></td>
                             <td><?php echo $row['firstname'];  ?></td>
                             <td><?php echo $row['surname']; ?></td>
                             <td><?php echo $row['email']; ?></td>
-                            <td><?php echo $row['power_output']; ?></td>
-                            <td><?php echo $row['distance']; ?></td>
-                            <td><?php echo $row['club_id']; ?></td>
-                            <td>
-                                <a href="editParticipant.php?editid=<?php echo $row['id']; ?>">EDIT</a>
-                                <a href="deleteparticipant.php?deleteid=<?php echo $row['id']; ?>">Delete</a>
-                            </td>
+                            <td><?php echo $row['terms']; ?></td>
 
 
 

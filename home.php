@@ -15,10 +15,12 @@ require('auth.php');
                         class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
         <a href="showcandidates.php"
             class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-            <i class="fas fa-user-plus"></i>Show_Candidates</a>
+           View Participant</a>
+            <a href="TotalRegistration.php"
+            class="list-group-item list-group-item-action bg-transparent second-text fw-bold">View Registration</a>
             <a href="search.php"
             class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-            <i class="fas fa-user-plus"></i>search_Candidates</a>
+            Search_Participant</a>
        
     </div>
 </div>
